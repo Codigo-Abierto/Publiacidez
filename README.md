@@ -21,12 +21,13 @@ Entre otras cosas, permite:
       </ul>
 </p>  
 <p>  
-También incluye otras opciones que facilitarán la creación de las reglas de filtrado para un dominio, como código personalizable de <i>ocultación/marcado</i> CSS, y deshabilitación global del JavaScript.<br>
+También incluye otras opciones que facilitarán la creación de las reglas de filtrado para un dominio, como código personalizable de <i>ocultación/marcado</i> CSS, y deshabilitación global del JavaScript.
 </p>
+<p></p>
 <p> 
   Incluye reglas predefinidas para una selección de dominios de entre las webs más visitadas.
 </p>  
-<br><br>
+<br>
 <h2>IMPORTANTE:</h2>
 <p> 
 Ten presente que <b>Publiacidez</b> <u>no es un <i>Ad Blocker</i> convencional</u>.<br> Está orientado a la creación personalizada de tus propios filtros por dominio.<br>
