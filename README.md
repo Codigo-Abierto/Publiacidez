@@ -23,7 +23,7 @@ Entre otras cosas, permite:
 <p>  
 También incluye otras opciones que facilitarán la creación de las reglas de filtrado para un dominio, como código personalizable de <i>ocultación/marcado</i> CSS, y deshabilitación global del JavaScript.
 </p>
-<p></p>
+<p> </p>
 <p> 
   Incluye reglas predefinidas para una selección de dominios de entre las webs más visitadas.
 </p>  
