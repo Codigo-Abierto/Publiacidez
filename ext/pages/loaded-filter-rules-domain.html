@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">    
+    <title>Reglas de filtrado sesión actual</title>
+    <script src="./util.js"></script>
+    <script src="loaded-filter-rules-domain.js"></script>
+    <link href="./style.css" rel="stylesheet"/>    
+</head>
+<body>
+    <main>
+      <h2 id="titulo">Reglas de filtrado activas por dominio:</h2>
+      <section class="panel-menus">                      
+        <div class="espacio-tabla">                
+          <table>
+            <thead>
+              <tr>
+                <th title="">Dominios accedidos en la sesión actual</th>
+                <th title="">+</th>                      
+              </tr>
+            </thead>    
+            <tbody id="dominios-cargados" class="puntero"></tbody>
+          </table>            
+        </div>
+        <div>
+            <textarea id="textarea-reglas" cols="50" rows="15" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly class="ocultar"></textarea>
+        </div>
+        <div class="area-notificaciones">
+          <fieldset id="info-reglas" class="info-box ocultar"></fieldset>
+        </div>
+        <div class="navegador">
+          <a href="./loaded-filter-rules.html" title="Volver al menú anterior">Atrás</a>
+        </div>
+      </section>
+    </main>      
+</body>
+</html>

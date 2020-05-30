@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">    
+    <title>Configuración</title>    
+    <script src="./util.js"></script>
+    <script src="./configuracion.js"></script>
+    <link href="./style.css" rel="stylesheet"/>    
+</head>
+<body>
+    <main>        
+        <section class="panel-menus">                 
+          <fieldset id="field-info" class="info-box ocultar">              
+          </fieldset>
+          <fieldset id="field-opciones-configuracion">
+            <legend>Configuración:</legend>  
+              <div>
+                  <a href="#" id="reinicializar-extension" title="Resetear extensión a valores por defecto">Reinicializar extensión (<i>defaults</i>)</a> 
+                  <fieldset id="confirmacion-reinicializar-extension" class="confirmacion-box ocultar">
+                    <legend class="confirmacion-box">Confirmar operación:</legend>
+                    <div>
+                      <p>El listado de reglas de filtrado se restaurará a los valores por defecto.<br>Se perderán todos los cambios efectuados y registros añadidos.</p>  
+                      <p>La extensión quedará como recien instalada.<br>¿Deseas continuar?</p>
+                      <button type="button" id="boton-aceptar-reinicializar">Aceptar</button>        
+                      <button type="button" id="boton-cancelar-reinicializar">Cancelar</button>
+                    </div>
+                  </fieldset>                   
+                  <a href="#" id="reiniciar-extension" title="Reiniciar extensión">Reiniciar extensión</a> 
+                  <fieldset id="confirmacion-reiniciar-extension" class="confirmacion-box ocultar">
+                    <legend class="confirmacion-box">Confirmar operación:</legend>
+                    <div>
+                      <p>Se desactivarán todas las reglas de filtrado de la actual sesión, salvo los configurados como reglas de <i>bloqueo permanente</i>.</p>  
+                      <p>Se refrescarán las pestañas abiertas: Sus posibles reglas por dominio volverán a ser aplicadas.<br>¿Deseas continuar?</p>
+                      <button type="button" id="boton-aceptar-reiniciar">Aceptar</button>        
+                      <button type="button" id="boton-cancelar-reiniciar">Cancelar</button>
+                    </div>
+                  </fieldset>                   
+                  <a href="./bloquear-siempre.html" title="Editar reglas permanentes">Reglas de bloqueo permanente</a> 
+                  <a href="./ocultacion-default.html" title="Establecer CSS de ocultación por defecto">Código de ocultación/marcado</a>                                   
+              </div>              
+          </fieldset>          
+          <div class="navegador">
+            <a href="./popup-menu.html" title="Volver al menú principal">Atrás</a>
+          </div>          
+        </section>
+    </main>            
+</body>
+</html>

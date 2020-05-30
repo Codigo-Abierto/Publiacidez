@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración</title>
+    <script src="./util.js"></script>
+    <script src="./bloquear-siempre.js"></script>
+    <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <main>
+        <section class="panel-menus">
+            <label class="text-reglas">
+                <h2>Reglas de bloqueo permanente:</h2>
+                <p>
+                    Las peticiones a las URLs que encajen con las descritas se bloquearán siempre. Independientemente del dominio al que se acceda.<br>                    
+                </p>
+                <textarea id="textarea-reglas" cols="50" rows="20" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                <button type="button" id="boton-actualizar-reglas" title="Establecer nuevas reglas de filtrado permanente">Actualizar
+                    Reglas</button>
+                <div class="area-notificaciones">
+                    <fieldset id="warning-reglas" class="warning-box ocultar">
+                        <legend>AVISO:</legend>
+                    </fieldset>                    
+                    <fieldset id="info-reglas" class="info-box ocultar"></fieldset>
+                    <fieldset id="error-reglas" class="error-box ocultar">
+                        <legend>ERROR:</legend>
+                    </fieldset>
+                </div>
+            </label>
+            <div class="navegador"><a href="./configuracion.html" title="Volver">Atrás</a></div>
+        </section>
+    </main>
+</body>
+
+</html>

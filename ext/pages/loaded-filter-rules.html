@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">    
+    <title>Reglas de filtrado sesión actual</title>
+    <script src="./util.js"></script>
+    <script src="loaded-filter-rules.js"></script>
+    <link href="./style.css" rel="stylesheet"/>    
+</head>
+<body>
+    <main>
+      <h2 id="titulo">Reglas de bloqueo de URLs activas:</h2>
+      <section class="panel-menus">                      
+        <div class="espacio-tabla">                
+          <table>
+            <thead>
+              <tr>
+                <th title="... que coincidan con el patrón">Bloquear peticiones a URLs</th>
+                <th title="ver dominios que usan esta regla en la sesión actual">+</th>                      
+              </tr>
+            </thead>    
+            <tbody id="bloquear-urls"></tbody>
+          </table>            
+        </div>
+        <div class="area-notificaciones">
+          <fieldset id="info-reglas" class="info-box ocultar"></fieldset>
+        </div>
+        <div class="navegador">
+          <a href="./popup-menu.html" title="Volver al menú principal">Atrás</a>
+        </div>
+        <div class="navegador derecha">          
+          <a href="./loaded-filter-rules-domain.html" title="de dominios accedidos en sesión actual" >Ver reglas por dominio</a>
+        </div>  
+      </section>
+    </main>      
+</body>
+</html>

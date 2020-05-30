@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">    
+    <title>Buscar reglas de filtrado por dominio</title>
+    <script src="./util.js"></script>
+    <script src="./search-filter-rules.js"></script>
+    <link href="./style.css" rel="stylesheet"/>    
+</head>
+<body>
+    <main>
+      <h2 id="titulo">Buscar filtros por dominio:</h2>
+      <section class="panel-menus">                      
+
+        <div class="buscar-filtro">          
+            <img src="../images/lupa.svg" alt="Search" title="Search" />
+            <input type="text" id="search" placeholder="buscar filtro ..." value="" />
+        </div>
+        <div id="combo-filtro">
+          <label>Buscar en:</label>
+          <select name="buscar" id="buscar-en">
+            <option value="0">dominio</option>
+            <option value="1">bloquear</option>
+            <option value="2">ocultar</option>
+            <option value="4">noscript</option>
+            <option value="5">scripts</option>
+          </select>          
+        </div>        
+        <div class="espacio-tabla">
+          <table>
+            <thead>
+              <tr>
+                <th title="reglas a aplicar en ...">dominio</th>
+                <th title="reglas de bloqueo de peticiones a URLs">bloquear</th>
+                <th title="reglas de cosméticos CSS">ocultar</th>
+                <th title="reglas cosméticas de aplicación dinámica">dinamico</th>
+                <th title="reglas de anulación de códigos JavaScript">noscript</th>
+                <th title="reglas de inyección de códigos JavaScript">scripts</th>                      
+              </tr>
+            </thead>    
+            <tbody id="reglas-dominio" class="flecha"></tbody>
+          </table>            
+        </div>
+        <div class="area-notificaciones">
+          <fieldset id="info-reglas" class="info-box ocultar"></fieldset>
+        </div>
+        <div class="navegador">
+          <a href="./popup-menu.html" title="Volver al menú principal">Atrás</a>
+        </div>  
+      </section>
+    </main>      
+</body>
+</html>

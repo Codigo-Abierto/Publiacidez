@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Añadir nuevas reglas de filtrado</title>
+  <script src="./util.js"></script>
+  <script src="./new-filter-rules.js"></script>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main>
+
+    <section class="panel-menus">
+      <label class="text-reglas">
+        <h2>Incorporar nuevos filtros de bloqueo:</h2>
+        <textarea id="textarea-reglas" cols="50" rows="22" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+        <button type="button" id="boton-cargar-reglas" title="Cargar nuevas reglas de filtrado">Importar Reglas</button>
+        <div class="area-notificaciones">
+          <fieldset id="info-reglas" class="info-box ocultar"></fieldset>
+          <fieldset id="error-reglas" class="error-box ocultar">
+            <legend>ERROR:</legend>
+          </fieldset>
+        </div>
+      </label>
+      <div class="navegador"><a href="./popup-menu.html" title="Volver al menú principal">Atrás</a></div>
+    </section>
+  </main>
+</body>
+
+</html>

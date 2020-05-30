@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">    
+    <title>menú de opciones</title>
+    <script src="./util.js"></script>
+    <script src="./popup-menu.js"></script>
+    <link href="./style.css" rel="stylesheet"/>
+</head>
+<body>
+    <main>
+        <h1 id="titulo">cabecera menu...</h1>
+        <section class="panel-menus">                       
+            <fieldset id="field-opciones-globales">
+              <legend>Opciones globales:</legend>  
+                <div >
+                    <a href="#" id="toggle-extension"></a>
+                    <fieldset id="confirmacion-habilitar-extension" class="confirmacion-box ocultar">
+                        <legend class="confirmacion-box">Confirmar operación:</legend>
+                        <div>
+                          <p>Se desactivarán todas las funciones y reglas de bloqueo de peticiones, scripts y ocultación estética de anuncios de la extensión.
+                            Tanto por dominio como permanentes.
+                          </p>  
+                          <p>Opción independiente de la (des)activación del JavaScript global.</p>
+                          <p>¿Deseas continuar?</p>
+                          <button type="button" id="boton-aceptar-extension">Aceptar</button>        
+                          <button type="button" id="boton-cancelar-extension">Cancelar</button>
+                        </div>
+                      </fieldset>
+                    <a href="#" id="toggle-javascript"></a>
+                    <fieldset id="confirmacion-desactivar-javascript" class="confirmacion-box ocultar">
+                        <legend class="confirmacion-box">Confirmar operación:</legend>
+                        <div>
+                          <p>Se desactivará el JavaScript de forma global para todas las webs.<br>(modo <i>NoScript</i>)
+                          <p>Permite una navegación más segura, pero muchas páginas requieren de su uso y no se visualizarán correctamente!</p>  
+                          <p>¿Deseas continuar?</p>
+                          <button type="button" id="boton-aceptar-javascript">Aceptar</button>        
+                          <button type="button" id="boton-cancelar-javascript">Cancelar</button>
+                        </div>
+                      </fieldset>
+                    <a href="./configuracion.html" >Configuración</a>
+                </div>              
+            </fieldset>
+            <fieldset id="field-reglas">
+                <legend>Reglas de filtrado:</legend>  
+                  <div>
+                      <a href="new-filter-rules.html">Añadir filtros por dominio</a>
+                      <a href="search-filter-rules.html">Buscar filtros existentes</a>
+                      <a href="loaded-filter-rules.html">Ver filtros activos</a>                      
+                  </div>              
+            </fieldset>      
+            <div class="navegador">
+                <a href="./acerca-de.html" title="Información sobre la extensión">Acerca de ...</a>
+            </div>                     
+        </section>
+    </main>            
+</body>
+</html>
