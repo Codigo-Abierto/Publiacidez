@@ -36,5 +36,12 @@ Ten presente que <b>Publiacidez</b> <u>no es un <i>Ad Blocker</i> convencional</
 <b>Sí es para tí</b>, si estás buscando algo que siendo efectivo, consuma pocos recursos y te permita personalizar exactamente lo que no  quieres ver ni cargar de las webs que más utilizas.<br>
 Tambíen <b>es para tí</b> si como yo, desconfias de todo JavaScript que se vaya a ejecutar en tu PC y no hayas revisado antes.<br>
 Puedes entender facilmente todo su código fuente en menos de una tarde!
+<br>
+</p>
+<h2>INSTALACION:</h2>
+<h3>FIREFOX:</h3>
+<p>
+Descarga el complemento para Desktop o Android desde:<br>
+https://addons.mozilla.org/en-US/firefox/addon/publiacidez/
 </p>
 </div> 
