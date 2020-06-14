@@ -1,0 +1,90 @@
+PRIVACY POLICY (English)
+------------------------
+This Privacy Policy applies only to the users of the "Publiacidez" web browser extension.
+
+"Publiacidez" protects and respects your privacy.
+The project source files are hosted on github.com, which is owned by GitHub, Inc., and thus is unrelated to "Publiacidez" extension.
+
+
+Consent
+--------
+By using the extension, you hereby consent to our Privacy Policy and agree to its terms.
+If you do not agree to this policy, please do not use the extension. 
+
+
+Information collected
+----------------------
+This extension does not collect any Personal Identifiable Information.
+No analitycs or tracking code is embed in its code.
+It's a standalone application that does not send information to any external server.
+
+
+How non-personal Data is used
+------------------------------
+"Publiacidez" extension uses localStorage to keep your extension configuration settings and customizable filter rules. 
+This information is necessary for the correct operation of the extension and is stored locally in your device (not shared to any external server).
+
+
+CCPA Privacy Rights (Do Not Sell My Personal Information)
+---------------------------------------------------------
+"Publiacidez" extension does not collect any Personal Identifiable Information.
+
+
+GDPR Data Protection Rights
+----------------------------
+"Publiacidez" extension does not collect any Personal Identifiable Information.
+
+
+Policy Changes
+---------------
+We reserve full right, at any time, to change, update, or modify this Privacy Policy simply by posting such change, update, or modification on the extension and without any prior notice to you. 
+Any change, update, or modification will be effective immediately upon posting on this site. 
+It is your responsibility to review this Policy from time to time to ensure that you continue to agree with all of its policies.
+
+
+
+
+
+
+POLITICA DE PRIVACIDAD (Castellano)
+-----------------------------------
+Esta política de privacidad se aplica únicamente a los usuarios de la extensión de navegador "Publiacidez".
+
+"Publiacidez" protege y respeta tu privacidad.
+El código fuente del proyecto se almacena en github.com, que es propiedad de GitHub, Inc., y por lo tanto no está relaccionado con la extensión "Publiacidez”.
+
+
+Consentimiento
+---------------
+Al usar la extensión, aceptas nuestra Política de Privacidad y todos sus términos.
+Si no estás de acuerdo con esta política, no utilices la extensión.
+
+
+Información recopilada
+-----------------------
+Esta extensión no recopila ninguna información personal sensible.
+No contiene analíticas ni código de seguimiento.
+Se trata de una aplicación independiente que no envía información a ningún servidor externo.
+
+
+Cómo se usan los datos no personales
+-------------------------------------
+La extensión "Publiacidez" utiliza el API localStorage para guardar su configuración y las reglas de filtrado personalizables.
+Esta información es necesaria para el correcto funcionamiento de la extensión y se almacena localmente en tu dispositivo (no se comparte con ningún servidor externo).
+
+
+Derechos de Privacidad CCPA  (No vendan mi información personal)
+-----------------------------------------------------------------
+La extensión "Publiacidez" no recopila ninguna información personal sensible.
+
+
+RGPG Reglamento General de Protección de Datos
+-----------------------------------------------
+La extensión "Publiacidez" no recopila ninguna información personal sensible.
+
+
+Cambios en la Política
+-----------------------
+Nos reservamos el pleno derecho de cambiar, actualizar o modificar esta Política de Privacidad  en cualquier momento, simplemente publicando dicho cambio, actualización o modificación en la extensión y sin previo aviso.
+Cualquier cambio, actualización o modificación entrará en vigencia inmediatamente después de su publicación en este sitio.
+Es su responsabilidad revisar esta Política de vez en cuando para asegurarse de seguir aceptando todas sus políticas.
