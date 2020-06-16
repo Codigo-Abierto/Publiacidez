@@ -45,3 +45,9 @@ Descarga el complemento para Desktop o Android desde <i>FIREFOX Browser ADD-ONS<
 https://addons.mozilla.org/en-US/firefox/addon/publiacidez/
 </p>
 </div> 
+<h3>FIREFOX:</h3>
+<p>
+Descarga la extensión para Desktop desde el <i>Chrome Web Store</i>:<br>
+https://chrome.google.com/webstore/detail/publiacidez/jbifbamlmmdbgkpfndcodlidjfkfjppc/
+</p>
+</div> 
