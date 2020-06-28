@@ -50,4 +50,7 @@ https://addons.mozilla.org/en-US/firefox/addon/publiacidez/
 Descarga la extensión para Desktop desde el <i>Chrome Web Store</i>:<br>
 https://chrome.google.com/webstore/detail/publiacidez/jbifbamlmmdbgkpfndcodlidjfkfjppc/
 </p>
+<h3>EDGE:</h3>
+Descarga la extensión para Desktop desde <i>Microsoft Edge Add-ons</i>:
+https://microsoftedge.microsoft.com/addons/detail/publiacidez/kgegbdbkdelmnmmhhlbbaeefoopklcap
 </div> 
