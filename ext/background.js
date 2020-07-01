@@ -32,8 +32,7 @@ function reinicializarExtensionDefaults() {
     default_bloquear_urls: [
       "*://*.facebook.net/*-tag.js",
       "*://googleads.g.doubleclick.net/*"
-    ], 
-    log: false,    
+    ] 
   };    
   localStorage.setItem("configuracion", JSON.stringify(configuracion));
   iniciarExtension();
@@ -231,26 +230,28 @@ function desactivarBloqueadorPubliacidez() {
 }
 
 function actualizarEstadoIcono() {
-  let str_nombre = "Publiacidez";
-  let str_off = "";
-  let str_exc = "";
-  if (!configuracion.bloqueador) {    
-    str_off = "_off";
-    str_nombre += "\nBloqueador OFF! ";
-  }
-  if (!configuracion.javascript) {
-    str_exc = "_exc";
-    str_nombre += "\nJavaScript OFF! ";
-  }  
-  if (configuracion.omitir_default_ocultar) {
-    str_exc = "_exc";
-    str_nombre += "\nOcultación NO default! ";
-  }
-  chrome.browserAction.setIcon({
-    path : {
-      "16": "icons/icon16" + str_off + str_exc + ".png",
-      "48": "icons/icon48" + str_off + str_exc + ".png"
+  if (!IS_ANDROID) {
+    let str_nombre = "Publiacidez";
+    let str_off = "";
+    let str_exc = "";
+    if (!configuracion.bloqueador) {    
+      str_off = "_off";
+      str_nombre += "\nBloqueador OFF! ";
     }
-  });
-  chrome.browserAction.setTitle({title: str_nombre});
+    if (!configuracion.javascript) {
+      str_exc = "_exc";
+      str_nombre += "\nJavaScript OFF! ";
+    }  
+    if (configuracion.omitir_default_ocultar) {
+      str_exc = "_exc";
+      str_nombre += "\nOcultación NO default! ";
+    }
+    chrome.browserAction.setIcon({
+      path : {
+        "16": "icons/icon16" + str_off + str_exc + ".png",
+        "48": "icons/icon48" + str_off + str_exc + ".png"
+      }
+    });
+    chrome.browserAction.setTitle({title: str_nombre});  
+  }
 }

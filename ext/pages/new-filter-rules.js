@@ -13,22 +13,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 }); 
 
 
-function importarReglas(texto){    
-    var regex_propiedades = new RegExp('(('+listaPropiedadesReglaValidas().join("|")+'+)( |\t){0,}:)', "g"); 
-    let texto_json = texto.replace(regex_propiedades, function(matchedString) {
-        return '"' + matchedString.substring(0, matchedString.length - 1).trim() + '":';
-    });
-    //eliminamos comentarios //...:
-    texto_json = texto_json.replace(/([^\\:]|^)\/\/.*$/gm, "");
-    //eliminamos saltos de linea repetidos y huecos dejados:
-    texto_json = texto_json.replace(/[\r \n]{2,}/g, "\n");    
-    //
+//
+function importarReglas(texto) {    
     let area_reglas = document.getElementById("textarea-reglas");
-    area_reglas.value = texto_json;
     //se parsea:
     try {
-        var supuestas_reglas = JSON.parse(texto_json);                    
-    } catch (e) {        
+        var supuestas_reglas = JSON.parse(area_reglas.value);
+    } catch (e) {  
+        ocultarElement(document.getElementById("info-reglas"));      
         mostrarDesvanecerElementById("error-reglas", "<legend>ERROR:</legend>" + e.toString());               
         if (e.toString().indexOf("at position ") >= 0) {            
             let posicion = parseInt(e.toString().substring(e.toString().indexOf("at position ")+12, e.toString().indexOf("at position ").length));
@@ -51,7 +43,7 @@ function importarReglas(texto){
         for (let key in supuestas_reglas[r]) {
             if (!listaPropiedadesReglaValidas().find(k => k === key)) {
                 bOK = false;   
-                error_info += "Propiedad no reconocida.<br>";
+                error_info += "Propiedad '<b>" + key + "</b>' no reconocida.<br>";
                 break;
             } else {
                 let valor = supuestas_reglas[r][key];
@@ -68,7 +60,7 @@ function importarReglas(texto){
                             for (let i=0; i < match_patterns.length; i++) {
                                 if ((typeof match_patterns[i] !== 'string')||(!validarMatchPattern(match_patterns[i]))) {
                                     bOK = false;
-                                    error_info += "Regla de 'bloquear' incorrecta (<i>match pattern</i> erróneo).<br>";
+                                    error_info += "Regla de 'bloquear' incorrecta (<i>match pattern</i> erróneo):<br><b>\"" + match_patterns[i] + "\"</b>";
                                     break;
                                 }
                             }                                
@@ -81,20 +73,40 @@ function importarReglas(texto){
                         if (Array.isArray(valor)) {
                             for (let i=0; i < valor.length; i++) {
                                 let elemento = valor[i];
-                                if (typeof elemento === 'string') {                                    
+                                if (typeof elemento === 'string') {  
+                                    if (!validarSelectorCSS(elemento)) {
+                                        bOK = false;
+                                        error_info += "'" + elemento + "' no es un selector CSS válido.<br>";                                                                
+                                    }                                   
                                 } else if (typeof elemento === 'object') {
                                     for (let subkey in elemento) {
                                         if (listaPropiedadesReglaValidas(key).find(sk => sk === subkey)) {                                            
                                             let subvalor = elemento[subkey];
-                                            switch (subkey) {                                                                                                
-                                                case 'sel':
-                                                case 'set':
-                                                case 'extend':
-                                                case 'text':  
+                                            switch (subkey) { 
+                                                case 'path':
+                                                case 'text': 
                                                     if (typeof subvalor !== 'string') {
                                                         bOK = false;
                                                         error_info += "La propiedad '" + subkey + "' del Array 'ocultar' debe ser de tipo <b>'string'</b>.<br>";
-                                                    }
+                                                    } else {                                                       
+                                                        if (!validarExpresionRegular(subvalor)) {
+                                                            bOK = false;
+                                                            error_info += "'" + subvalor + "' no representa una Expresión Regular válida.<br>";                                                                
+                                                        }                                                                                                                                     
+                                                    } 
+                                                    break;                                                                                               
+                                                case 'sel':   
+                                                case 'resel':
+                                                case 'extend':                                                
+                                                    if (typeof subvalor !== 'string') {
+                                                        bOK = false;
+                                                        error_info += "La propiedad '" + subkey + "' del Array 'ocultar' debe ser de tipo <b>'string'</b>.<br>";
+                                                    } else {                                                       
+                                                        if (!validarSelectorCSS(subvalor)) {
+                                                            bOK = false;
+                                                            error_info += "'" + subvalor + "' no es un selector CSS válido.<br>";                                                                
+                                                        }                                                                                                                                     
+                                                    } 
                                                     break;
                                                 case 'dinamico':
                                                 case 'omitir_default':
@@ -102,6 +114,12 @@ function importarReglas(texto){
                                                         bOK = false;
                                                         error_info += "La propiedad '" + subkey + "' del Array 'ocultar' debe ser de tipo <b>'boolean'</b>.<br>";
                                                     }
+                                                    break;
+                                                case 'set': 
+                                                    if (typeof subvalor !== 'object') {
+                                                        bOK = false;
+                                                        error_info += "La propiedad '" + subkey + "' del Array 'ocultar' debe ser de tipo <b>'object'</b>.<br>";
+                                                    } 
                                                     break;
                                             } 
                                         } else {
@@ -137,7 +155,12 @@ function importarReglas(texto){
                                                 case 'reemplazar':
                                                     if (typeof subvalor !== 'string') {
                                                         bOK = false;
-                                                        error_info += "La propiedad '" + subkey + "' del Array 'scripts' debe ser de tipo <b>'string'</b>.<br>";
+                                                        error_info += "La propiedad '" + subkey + "' del Array 'noscript' debe ser de tipo <b>'string'</b>.<br>";
+                                                    } else {
+                                                        if (subvalor.trim() === "") {
+                                                            bOK = false;
+                                                            error_info += "La propiedad '" + subkey + "' del Array 'noscript' no debe estar vacia.<br>";
+                                                        }
                                                     }
                                                     break;                   
                                             }                                            
@@ -174,7 +197,7 @@ function importarReglas(texto){
                                                     break;
                                                 case 'head':
                                                 case 'defer':
-                                                    if (typeof subvalor !== 'string') {
+                                                    if (typeof subvalor !== 'boolean') {
                                                         bOK = false;
                                                         error_info += "La propiedad '" + subkey + "' del Array 'scripts' debe ser de tipo <b>'boolean'</b>.<br>";
                                                     }
@@ -199,12 +222,13 @@ function importarReglas(texto){
     }
     //
     if (!bOK) {
-        mostrarDesvanecerElementById("error-reglas", "<legend>ERROR:</legend>No se pudo hacer la importación!<br>" + error_info);
+        ocultarElement(document.getElementById("info-reglas"));
+        mostrarDesvanecerElementById("error-reglas", "<legend>ERROR:</legend>No se pudo hacer la importación!<br>" + error_info, 12000, 2000);
         return false;
     } else {
-        chrome.runtime.sendMessage({msg: "importar", txt: JSON.stringify(supuestas_reglas)}, function(respuesta){ //callback:
-            console.log('Recibida respuesta de background ', respuesta);    
+        chrome.runtime.sendMessage({msg: "importar", txt: JSON.stringify(supuestas_reglas)}, function(respuesta){ //callback:                
             if (respuesta) { 
+                ocultarElement(document.getElementById("error-reglas"));
                 mostrarDesvanecerElementById("info-reglas", "Importación realizada.<br>Verifica el correcto funcionamiento de la aplicación!");
             }
         });
@@ -212,14 +236,40 @@ function importarReglas(texto){
     }   
 }
 
-function listaPropiedadesReglaValidas(propiedad=""){
+//
+function validarSelectorCSS(selector) {
+    try {
+        document.querySelector(selector);
+        return true;
+    }
+    catch(e) {
+        //selector CSS no valido
+        console.log(e);        
+    }
+    return false;
+}
+
+function validarExpresionRegular(re_str) {
+    try {
+        RegExp(re_str);
+        return true;
+    }
+    catch(e) {
+        //contruccion Expresion Regular no válida
+        console.log(e);        
+    }
+    return false;
+}
+
+//
+function listaPropiedadesReglaValidas(propiedad="") {
     let lista = [];
     switch (propiedad) {
         case "": 
             lista = ["dominio", "dinamico", "bloquear", "ocultar", "noscript", "scripts"];
             break; 
         case "ocultar":
-            lista = ["sel", "set", "extend", "text", "dinamico", "omitir_default", "buscar", "reemplazar"];  
+            lista = ["path", "sel", "set", "extend", "text", "resel", "dinamico", "omitir_default"];  
             break;
         case "noscript":
             lista = ["text", "buscar", "reemplazar"]; 
@@ -232,3 +282,5 @@ function listaPropiedadesReglaValidas(propiedad=""){
     }
     return lista;
 }
+
+

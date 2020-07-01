@@ -12,10 +12,10 @@
  */
 
 //
-function refrescarTabs(targets_query={}){ 
+function refrescarTabs(targets_query={}) { 
     chrome.tabs.query(targets_query, function(tabs) { 
         tabs.forEach(function(tab) {
-            if ((tab.url)&&(tab.url.indexOf("http") >= 0)){
+            if ((tab.url)&&(tab.url.indexOf("http") >= 0)) {
                 chrome.tabs.executeScript(tab.id, {code: "window.location.reload();"}); 
             }                        
         });
@@ -23,7 +23,7 @@ function refrescarTabs(targets_query={}){
 }
 
 //
-function mostrarDesvanecerElementById(element_id, text_html, msec_in=8000, msec_out=2000){
+function mostrarDesvanecerElementById(element_id, text_html, msec_in=8000, msec_out=2000) {
     let e = document.getElementById(element_id);
     if (e) {
         if (text_html) e.innerHTML = text_html;    
@@ -32,20 +32,20 @@ function mostrarDesvanecerElementById(element_id, text_html, msec_in=8000, msec_
     }
 }
 
-function mostrarElement(e){
+function mostrarElement(e) {
     if (e.desvanecer_timeout) window.clearTimeout(e.desvanecer_timeout);
     if (e.ocultar_timeout) window.clearTimeout(e.ocultar_timeout);    
     e.classList.remove("ocultar", "fade-out");
     e.classList.add("fade-in");    
 }
 
-function ocultarElement(e, borrar_html){
+function ocultarElement(e, borrar_html) {
     e.classList.add("ocultar"); 
     e.classList.remove("fade-in", "fade-out");
     if (borrar_html) e.innerHTML = "";
 }
 
-function desvanecerElement(e, msec_out=2000){
+function desvanecerElement(e, msec_out=2000) {
     e.classList.add("fade-out");
     e.ocultar_timeout = window.setTimeout(ocultarElement, msec_out, e, true);
 }
@@ -53,12 +53,12 @@ function desvanecerElement(e, msec_out=2000){
 
 //
 function validarNombreDominio(nombre) {
-    return ((typeof nombre === 'string')&&(/^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/.test(nombre)));
+    return ((typeof nombre === 'string')&&(nombre.split('.').length > 1)&&(/^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/.test(nombre)));
 }
 
 //
 function validarMatchPattern(pattern) {   
-    const schemeSegment = '(\\*|http|https|file|ftp)';
+    const schemeSegment = '(\\*|http|https|data|file|ftp|ftps|ws|wss)';
     const hostSegment = '(\\*|(\\*\\.)([a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])|(\\*\\.)?((?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))';
     const pathSegment = '(.*)';
     const matchPatternRegExp = new RegExp(`^${schemeSegment}://${hostSegment}/${pathSegment}$`);    

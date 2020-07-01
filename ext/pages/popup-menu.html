@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">       
     <title>menú de opciones</title>
     <script src="./util.js"></script>
+    <script src="../comun.js"></script>
     <script src="./popup-menu.js"></script>
     <link href="./style.css" rel="stylesheet"/>
 </head>
@@ -13,7 +14,7 @@
         <section class="panel-menus">                       
             <fieldset id="field-opciones-globales">
               <legend>Opciones globales:</legend>  
-                <div >
+                <div>
                     <a href="#" id="toggle-extension"></a>
                     <fieldset id="confirmacion-habilitar-extension" class="confirmacion-box ocultar">
                         <legend class="confirmacion-box">Confirmar operación:</legend>
@@ -48,7 +49,9 @@
                       <a href="search-filter-rules.html">Buscar filtros existentes</a>
                       <a href="loaded-filter-rules.html">Ver filtros activos</a>                      
                   </div>              
-            </fieldset>      
+            </fieldset>    
+            <fieldset id="field-info" class="info-box ocultar">              
+            </fieldset>  
             <div class="navegador">
                 <a href="./acerca-de.html" title="Información sobre la extensión">Acerca de ...</a>
             </div>                     

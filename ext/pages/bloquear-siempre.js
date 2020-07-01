@@ -70,3 +70,4 @@ function importarReglasPermanentes(textarea) {
         textarea.setSelectionRange(posicion0 + 1, posicion + 1);  
     }
 }
+

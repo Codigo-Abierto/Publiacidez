@@ -180,18 +180,50 @@ function guardarListaReglasPorDefecto() {
       ]
     },
     {
-      dominio: "youtube.com",
-      bloquear: [
+      "dominio": "youtube.com",      
+      "bloquear": [
+        "*://tpc.googlesyndication.com/*",
         "*://googleads.g.doubleclick.net/*",
         "*://static.doubleclick.net/*",
         "*://www.google.com/pagead/*",
         "*://www.google.es/pagead/*",
-        "*://www.youtube.com/get_midroll_*"
+        "*://www.youtube.com/get_midroll_*",
+        "*://*.googlesyndication.com/sodar/*", //
+        "*://*.youtube.com/*=adunit&*"
       ],
-      ocultar: [
-        "div[id='masthead-ad']"
+      "ocultar": [
+        "div[id='masthead-ad']", //
+        "#companion",
+        "#player-ads",
+        ".video-ads"
       ]
-    }, 
+    },
+    {
+      "dominio": "twitch.tv",
+      "bloquear": [
+        "*://*.googletagservices.com/tag/js/gpt.js",
+        "*://*.amazon-adsystem.com/*",
+        "*://*.g.doubleclick.net/*",
+        "*://sb.scorecardresearch.com/*", //        
+        "wss://pubsub-edge.twitch.tv/*"   
+      ],
+      "ocultar": [
+        "div[class~='consent-banner']",
+        {
+          "sel": "div[data-test-selector='sad-overlay']",
+          "dinamico": true
+        }
+      ],
+      "scripts": [
+        {
+          "codigo": "(function(){if(\"function\"==typeof fetch){var a=window.fetch;window.fetch=function(b){if(2<=arguments.length&&\"string\"==typeof b&&b.includes(\"/access_token\")){var d=new URL(arguments[0]);d.searchParams.delete(\"player_type\"),d.searchParams.set(\"platform\", \"_\"),arguments[0]=d.href}return a.apply(this,arguments)}}})();",
+          "head": true
+        },
+        {
+          "codigo": "if (typeof localStorage != 'undefined' && localStorage.setItem){localStorage.setItem('twilight.gdpr.preferences', '{\"version\":1,\"vendorPreferences\":{\"amazon\":false,\"comscore\":false,\"google\":false,\"nielsen\":false,\"salesforce_dmp\":false}}');}" 
+        }	
+      ]
+    },         
     {
       dominio: "burbuja.info",      
       bloquear: [      
@@ -225,11 +257,12 @@ function guardarListaReglasPorDefecto() {
       ]
     },                    
     {
-      dominio: "twitter.com",
-      dinamico: true,
-      ocultar: [
+      "dominio": "twitter.com",
+      "dinamico": true,
+      "ocultar": [
         {sel: "div[data-testid='UserCell']", text: "(Promoted|Gesponsert|Promocionado|Sponsorisé|Sponsorizzato|Promowane|Promovido|Реклама|Uitgelicht|Sponsorlu|Mainostettu)$"},
-        {sel: "div[data-testid='placementTracking']", text: "(Promoted|Gesponsert|Promocionado|Sponsorisé|Sponsorizzato|Promowane|Promovido|Реклама|Uitgelicht|Sponsorlu|Mainostettu)$"}
+        {sel: "div[data-testid='placementTracking']", text: "(Promoted|Gesponsert|Promocionado|Sponsorisé|Sponsorizzato|Promowane|Promovido|Реклама|Uitgelicht|Sponsorlu|Mainostettu)$"},
+        {sel: "div", text: "^(Promocionado)", extend: "div[data-focusable=\"true\"]"}
       ]
     },
     {
@@ -243,8 +276,25 @@ function guardarListaReglasPorDefecto() {
       dominio: "facebook.com",  
       dinamico: true,  
       ocultar: [
-        {sel: "div[class='l9j0dhe7']", text: "^Publicidad"},
-        {sel: "div[class='cbu4d94t j83agx80']", text: "· .*P.*u.*b.*l.*i.*c.*i.*d.*a.*d.* ·"} 
+        { 
+          path: "^/$", 
+          sel: "div[class='l9j0dhe7']", text: "^(Publicidad|Sponsored)"
+        },
+        {
+          path: "^/$",
+          //sel: "a[href^='/ads/about/']", //lo insertan dinamicamente cuando te metes encima, por lo que no sirve
+          sel: "span[class='gpro0wi8 j1lvzwm4 stjgntxs ni8dbmo4 q9uorilb'] > span[class='b6zbclly myohyog2 l9j0dhe7 aenfhxwr l94mrbxd ihxqhq3m nc684nl6 t5a262vz sdhka5h4']",
+          resel: "span:not([style*='position: absolute']", 
+          text: "(ublicidad|ponsored)$",
+          extend: "div[class='cbu4d94t j83agx80']"
+        },
+        {
+          path: "^/$", //edge
+          sel: "span[class='gpro0wi8 j1lvzwm4 stjgntxs ni8dbmo4 q9uorilb'] > b[class='b6zbclly myohyog2 l9j0dhe7 aenfhxwr l94mrbxd ihxqhq3m nc684nl6 t5a262vz sdhka5h4']",
+          resel: "b:not([style*='display: none']",
+          text: "(ublicidad|ponsored)$",
+          extend: "div[class='cbu4d94t j83agx80']"
+        }        
       ]
     },
     {
@@ -279,15 +329,15 @@ function guardarListaReglasPorDefecto() {
       bloquear: [
         "*://amazon-adsystem.com/*",
         "*://*.g.doubleclick.net/*",
-        "*://consensu.org/*",
-        "*://leadzutw.com/*",
-        "*://lzrikate.com/*",
-        "*://leadzutw.com/*",
-        "*://adnxs.com/*",
-        "*://rubiconproject.com/*",
-        "*://richaudience.com/*",
-        "*://criteo.com/*",
-        "*://smartadserver.com/*",
+        "*://*.consensu.org/*",
+        "*://*.leadzutw.com/*",
+        "*://*.lzrikate.com/*",
+        "*://*.leadzutw.com/*",
+        "*://*.adnxs.com/*",
+        "*://*.rubiconproject.com/*",
+        "*://*.richaudience.com/*",
+        "*://*.criteo.com/*",
+        "*://*.smartadserver.com/*",
         "*://*.videostep.com/*/VideoAdContent*",
         "*://*.prebid.org/*", 
         "*://*.sddan.com/*",
@@ -295,7 +345,10 @@ function guardarListaReglasPorDefecto() {
         "*://*.openx.net/*",    
         "*://*.2mdn.net/*", 
         "*://*.agkn.com/*",
-        "*://*.skimresources.com/*",
+        "*://*.skimresources.com/*",        
+        "*://*.static-od.com/*",
+        "*://*.facebook.net/*/fbevents.js",
+        "*://*.static.doubleclick.net/instream/ad_status.js",        
         "https://scripts.static-od.com/setup/?site=forocoches"        
       ],    
       ocultar: [

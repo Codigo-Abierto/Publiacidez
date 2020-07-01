@@ -1,17 +1,28 @@
+:root {
+  --base-texto: 16px;  
+}
+
+html {
+  font-size: var(--base-texto);
+}
 
 body {
   font-family:  sans-serif;
   background-color: rgb(231, 235, 240);
-  min-width: 450px;
+  min-width: 450px;  
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 1.25rem;    
 }
 
 h2 {
-  font-size: 17px;
+  font-size: 1.0625rem;
   margin: 0 0 3px 0;
+}
+
+textarea, input, select {
+  font-size: 0.875rem;
 }
 
 fieldset {
@@ -28,7 +39,7 @@ fieldset:hover {
 
 legend {
     padding: 2px 4px;
-    font-size: 10px;
+    font-size: 0.625rem;
     background: rgb(250, 227, 227);
 }
 
@@ -36,14 +47,14 @@ fieldset.info-box {
   padding-top: 8px;
   border: 1px solid rgb(34, 112, 17);
   background-color: rgb(218, 248, 214); 
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 fieldset.error-box, fieldset.warning-box { 
   padding-top: 8px;
   border: 1px solid rgb(90, 1, 1);
   background-color: rgb(255, 245, 199); 
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 fieldset.confirmacion-box {
@@ -61,7 +72,7 @@ fieldset.confirmacion-box:hover, fieldset.info-box:hover, fieldset.warning-box:h
 
 legend.confirmacion-box, legend.warning-box {
   padding: 2px 4px;
-  font-size: 10px;
+  font-size: 0.625rem;
   background:#FF0;
 }
 
@@ -83,7 +94,7 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
 }
 
@@ -123,7 +134,7 @@ tr.regla-tabla:nth-child(odd) {
 .panel-menus a {
   padding: 8px 8px 8px 8px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #818181;
   display: block;
   transition: 0.1s;
@@ -135,18 +146,18 @@ tr.regla-tabla:nth-child(odd) {
 
 #info-reglas {
   color: black;   
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 #error-reglas {
   color: crimson; 
   font: bold;
-  font-size: 15px;
+  font-size: 0.975rem;
 }
 
 #warning-reglas {
   color: rgb(44, 6, 13); 
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .text-reglas {
@@ -178,8 +189,8 @@ tr.regla-tabla:nth-child(odd) {
 }
 
 select {  
-  height: 29px;
-  line-height: 29px;
+  height: 1.8125rem;
+  line-height: 1.8125rem;
   background:#FFF;  
 }
 
@@ -231,14 +242,10 @@ select {
 }
 
 #opciones {
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 6px;
 }
 
 #opciones input[type="radio"]{
   margin: 0 5px 12px 1px;
 }
-
-
-
-

@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
      //
      document.getElementById('search').addEventListener('keyup', filtrarBusqueda);
      //
-     mostrarDesvanecerElementById("info-reglas", "Haz doble click sobre una fila para copiar los filtros del dominio al portapapeles.");            
+     if (!IS_ANDROID) mostrarDesvanecerElementById("info-reglas", "Haz doble click sobre una fila para copiar los filtros del dominio al portapapeles.");            
      //
      document.getElementById("search").focus();
      //
